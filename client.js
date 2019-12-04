@@ -1,15 +1,16 @@
 const net = require('net');
+const { IP, PORT } = require('./constants');
 const connect = function () {
   const conn = net.createConnection({
-    host: '172.46.2.204',
-    port: 50541
+    host: IP,
+    port: PORT
   });
   conn.setEncoding('utf8');
   conn.on('connect', () => {
     console.log('Hello from snek!');;
   });
   conn.on('connect', () => {
-    conn.write('Name: BOB')
+    conn.write('Say: sad')
   })
   conn.on('data', (data) => {
     console.log('Server says: ', data);
